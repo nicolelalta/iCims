@@ -1,0 +1,298 @@
+<style>
+
+    .header-basic-light{
+        
+        padding: 10px 20px;  /* moves navbar text up and down */
+        box-sizing:border-box;
+        box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.15);
+        height: 69px;
+        /* background-color: #e9e9e9; */
+        background-color: #eeeeee;
+        /* #002462 navy*/
+
+    }
+    .header-basic-light .header-limiter {
+        max-width: 1200px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    /*491 logo*/
+.logo{
+
+    position: absolute;
+    top: 5px; left: 128px;
+    margin: 0;
+    max-width: 68px;
+    max-height: 68px;
+
+        /*icims logo*/
+}
+.logo2{
+    position: absolute;
+    top: 0px; left: 220px;
+    margin: 0;
+    max-width: 87px;
+    max-height: 87px;
+}
+
+
+    /* Logo */
+    .header-basic-light .header-limiter h1{
+        float: left;
+        font-family: 'Tangerine', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif normal 28px ;
+        line-height: 40px;
+        margin: 0;
+    }
+    .header-basic-light .header-limiter nav{
+        font-family:10px 'Tangerine', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        line-height: 40px;
+        float: right;
+    }
+    .header-basic-light .header-limiter nav a{
+        display: inline-block;
+        padding: 0 5px;
+        opacity: 0.9;
+        text-decoration:none;
+        font-family: 'Tangerine', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: rgb(26, 26, 26);  /* white "all texts on the right side" */
+        line-height:1;
+    }
+    .header-basic-light .header-limiter nav a.selected {
+        background-color: #86a3d5;
+        color: #181818;
+        border-radius: 3px;
+        padding:6px 10px;
+    }
+    /* Making the header responsive. doesnt work that well at the moment */
+    @media all and (max-width: 600px) {
+        .header-basic-light {
+            padding: 20px 0;
+            height: 85px;
+        }
+        .header-basic-light .header-limiter h1 {
+            float: none;
+            margin: -8px 0 10px;
+            text-align: center;
+            font-size: 24px;
+            line-height: 1;
+            
+        }
+        .header-basic-light .header-limiter nav {
+            line-height: 1;
+            float:none;
+        }
+        .header-basic-light .header-limiter nav a {
+            font-size: 5px;
+        }
+    }
+    body {
+        margin:0;
+        padding:0;
+    }
+    .bruh{
+        position: absolute;
+        font-size: 14px;
+        font-family: 'Tangerine', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        top: 25px; right: 280px;
+    }
+    .bruh2{
+        position: absolute;
+        font-size: 15px;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+        top: 17px; right: 150px;
+
+        border: none;
+        padding: 12px 5px;
+        text-decoration: none;
+        display: inline-block;
+    }
+    </style>
+
+<!----------------------------------------------------END OF CSS ---------------------------------------------------------->
+
+<!--------------------------------------------------START OF NAVBAR ------------------------------------------------------->
+
+<header class="header-basic-light">
+	<div class="header-limiter">
+       <img class="logo" src="491logo.png">
+       <img class="logo2" src="icimslogo.png">
+
+		<nav class="bruh">
+			<a href="javascript:history.back()"></a></nav>
+		<nav class="bruh2">	
+
+            <a href="http://localhost:3000/">HOME</a>
+
+        </ul>
+	</nav>
+</header>
+<!--------------------------------------------------END OF NAVBAR ------------------------------------------------------->
+
+
+<body onload="loadJobs()">
+<link rel="stylesheet" type="text/css" href="ViewJobsNAV.css"
+href="https://fonts.googleapis.com/css?family=Tangerine" >
+<div class="container">
+  
+  <div class="flex-item">
+  <input type="text" id="myinput" onkeyup="filter()" placeholder="Search Job Title" value=''>
+
+  <select id="locationlist" onchange="filter()" name="location">
+          <option value="Filter By Location">Filter by Location</option>
+          <option value="Parsippany, NJ">Parsippany, NJ<br></option>
+          <option value="Jersey City, NJ">Jersey City, NJ<br></option>
+          <option value="Union, NJ">Union, NJ<br></option>
+          <option value="Secaucus, NJ">Secaucus, NJ<br></option>
+          <option value="New York, NY">New York, NY<br></option>
+          <option value="San Diego, CA">San Diego, CA<br></option>
+          <option value="San Carlos, CA">San Carlos, CA<br></option>
+          <option value="Portland, OR">Portland, OR<br></option>
+          <option value="Bellingham, WA">Bellingham, WA<br></option>
+  </select>
+
+ 
+<div class="flex-item">
+     
+        <table id="myTable">
+            <form id="myform">
+                <tr class="header">
+                    <th style="width:1%;">ID</th>
+                    <th style="width:16%;">JOB TITLE</th>
+                    <th style="width:10%;">SALARY</th>
+                    <th style="width:30%;">DESCRIPTION</th>
+                    <th style="width:12%;">LOCATION</th>
+                    <th style="width:3%;">YEARS OF EXPERIENCE</th>
+                    <th style="width:20%;">SKILLS REQUIRED</th>
+                    <th style="width:3;">SELECT JOB</th> 
+                </tr>
+        </table>
+        <table id="myTable">
+        </table>
+        <br>
+        <button type="submit" id="submit" onclick="">Add selected job(s) to Profile</button>
+    </br>
+   
+        </script>  
+        </form>
+    </div>
+</div>
+</div>
+
+<div id="response"></div>
+
+
+<script>
+
+    var i=0;
+    document.getElementById('submit').addEventListener('click', makeExam);
+
+    function loadJobs(){
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','https://be0nkygd1e.execute-api.us-east-1.amazonaws.com/viewAllJobs', true);
+
+        xhr.onload = function(){
+            if(this.status == 200){
+                var job = JSON.parse(this.responseText);
+
+                var arrayLength = job.length;
+
+                var t='';
+                for (i = 0; i < arrayLength; i++) {
+                    var tr = "<tr>";
+                    tr += "<td id='jobID'>" +job[i].jobID+"</td>"
+                    tr += "<td id='title'>" +job[i].title+"</td>";
+                    tr += "<td id='salary'>" +job[i].salary+"</td>";
+                    tr += "<td id='description'>" +job[i].description+"</td>";
+                    tr += "<td id='location'>" +job[i].location+"</td>";
+                    tr += "<td id='yearsexp'>" +job[i].yearsexp+"</td>";
+                    tr += "<td id='skills'>" +job[i].skills+"</td>";
+                    tr += "<td><input type = 'checkbox' name='check[]' value='checkbox' id='Checkbox'></checkbox>";
+                    t += tr;
+                }
+                document.getElementById("myTable").innerHTML+= t;
+            }
+            if(this.status == 404){
+                console.log("404 error");
+            }
+        }
+        xhr.send();
+    }
+
+    function makeExam(){
+        var table = document.getElementById('myTable');
+        var rowCells;
+        var checkbox;
+        var input;
+        var button;
+        var test = [];
+
+        console.log('button pressed');
+
+        var rowCount = document.getElementById('myTable').rows.length;
+        for (var z = 1; z < rowCount; z++) {
+            rowCells = table.rows[z].cells;
+            checkbox = table.rows[z].querySelectorAll('input[type="checkbox"]');
+
+            if (checkbox[0].checked == true) {
+
+                test.push({
+                    jobID: rowCells[0].innerHTML,
+
+                });
+            }
+        }
+
+        $payload = JSON.stringify(test);
+
+        console.log($payload);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://jmcvkdhaaf.execute-api.us-east-1.amazonaws.com/percentageMatch', true);
+        xhr.setRequestHeader('Content-Type','application/json');
+        xhr.send($payload);
+          {
+          setTimeout('Redirect()', 700);
+      }
+    }
+    function filter(){
+
+        var keyword, location;
+
+        keyword = document.getElementById("myinput").value;
+        location = document.getElementById("locationlist").value;
+
+
+        if (location == "Filter By Location") {
+            location = "";
+        }
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("myTable").innerHTML= this.responseText;
+            }
+        };
+
+        xmlhttp.open("POST","https://be0nkygd1e.execute-api.us-east-1.amazonaws.com/filterJobs",true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+         
+
+        xmlhttp.send("keyword=" +encodeURIComponent(keyword)
+  + "&location=" +encodeURIComponent(location));
+
+  }
+  
+function Redirect()
+{
+window.location.href = "https://491final.s3.amazonaws.com/HTMLSplit.html";
+}
+</script>
+</body>

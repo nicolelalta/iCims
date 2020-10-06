@@ -1,0 +1,30 @@
+NOTE: Type all commands without quotations.
+
+STEPS.
+
+*Download both folders 'WebsiteForDemo' and 'addskills3001'*
+
+1.) Open Command Prompt/Terminal depending on if you're using Windows or Mac.
+2.) Navigate into the 'WebsiteForDemo' folder.
+3.) Type and enter "npm start". The main website should now be running on your localhost:3000.
+4.) Open another instance of Command Prompt/Terminal.
+5.) Navigate into the 'addskills3001' folder.
+6.) Type and enter "npm start". The 'add skills' component should now be running on your localhost:3001.
+
+In your browser you can navigate to the localhost:3000 tab and run the demo! (You can close the tab that is running localhost:3001, that will be used later in the demo, anyway.)
+------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------
+                        TROUBLE SHOOTING
+
+*IN THE CASE WHERE YOU ARE NOT ABLE TO GET 'WebsiteForDemo' TO RUN* 
+
+Follow these steps.
+
+1.) In your regular file explorer, navigate into the 'WebsiteForDemo' folder.
+2.) Delete the 'package-lock.json' file.
+3.) Delete the 'node-modules' folder.
+4.) Remove 'webpack' from dependencies in your 'package.json' file.
+5.) Open Command Prompt/Terminal and navigate into the 'WebsiteForDemo' folder.
+6.) Type and enter "npm install"
+
+When the process is finished, the project should start successfully after typing in "npm start"
